@@ -1,0 +1,1241 @@
+#used for grouping things together {}
+#in a set it does not allow dublicate values or strings bud it allows addition and subtraction of things
+#it is un-ordered thus one can't itarate over it in any order
+set = {"blueberry", "rasberry"}
+
+print(set)
+print()
+
+set.add("strawberry")
+print(set)
+print()
+
+#it is not limited on what datatype can be added
+set.add("4,")
+print(set)
+print()
+
+#will not be added as it does supiort dublicate
+set.add('blueberry')
+print(set)
+print()
+
+
+library_1 = {"Harry potter", "Hunger Games", "Lord of the Rings"}
+library_2 = {"Harry potter", "Romeo and Juliet"}
+
+#it shall join the books in both libraries to form a single library
+all_books_in_lib = library_1.union (library_2)
+print(all_books_in_lib)
+print()
+
+library_1 = {"Harry potter", "Hungery Games", "Lord of the Rings"}
+library_2 = {"Harry potter", "Romeo and Juliet"}
+
+#checks which element appears in both sets
+check_book_in_both_libraries = library_1.intersection(library_2)
+print(check_book_in_both_libraries)
+print()
+
+#checks for elements that appear only once in a given set
+different_books_in_lib = library_1.difference (library_2)
+print(different_books_in_lib)
+
+
+#checks for elements that appear only once in both sets
+different_books_in_lib = library_2.difference (library_1)
+print(different_books_in_lib)
+
+
+#create a list of numbers
+#i should work on this later till it works
+list_of_numbers = [1, 2, 3, 3, 3, 4, 5, 5, 6, 6, 4, 7, 8, 8]
+print(list_of_numbers)
+print()
+
+#cast the list into a set to remove the dublicates
+list_of_numbers2 = [1, 2, 3, 3, 3, 4, 5, 5, 6, 6, 4, 7, 8, 8]
+no_dublicate_set = set(list_of_numbers2)
+print(no_dublicate_set)
+print()
+
+#cast the set back to list after all the dublicate values have been removed
+new_list = list(no_dublicate_set)
+print(new_list)
+print()
+
+
+
+board = ("-", "-", "-", 
+         "-", "-", "-",
+         "-", "-", "-",)
+
+def display_board():
+    print(board[0]+ " | " + board[1]+ " | " + board[2])
+    print(board[3]+ " | " + board[4]+ " | " + board[5])
+    print(board[6]+ " | " + board[7]+ " | " + board[8])
+    
+    display_board()
+
+
+#board
+#display board
+#play game
+# hundle turns
+#check win
+# check rows
+#check columns
+#check diagonals
+#check tie
+#flip player
+
+
+#tuples can not be changed ie elements canot be added or removed from tuples
+#A tuple is a steble structtured type of datatype
+t = (1, 2, 3, 4, 5, 6, 7, 8, 9, 0,)
+print(t[:-1])
+print()
+
+credit_card1 = (123123412345, 'Mark Waithaka', '17/7/2021', 1234,)
+credit_card2 = (123123412345, 'Mark Waithaka', '17/7/2021', 1234,)
+
+credit_cards = [credit_card1, credit_card2]
+print(credit_cards)
+print()
+
+person = ('johnte', 'coding', 'pussy')
+
+#unpacking the tuples
+(name, loves, favFood) = person
+
+print("Name :" + " " + name)
+print(name + ' '  +'loves' + " " + loves)
+print(name + " " + "favourite food is" + " " + favFood)
+print()
+
+person1 = ("Ann", "shaving", "pizza")
+person2 = ('johnte', 'coding', 'pussy')
+person3 = ('Mark', 'programming', 'tirriz')
+
+people = [person1, person2, person3]
+
+(name, loves, favFood) = person
+
+print("Name :" + " " + name)
+print(name + ' '  +'loves' + " " + loves)
+print(name + " " + "favourite food is" + " " + favFood)
+print()
+
+for name, loves, favFood in people:
+    print("Name :" + " " + " " + name)
+    print(name + ' '  +'loves' + " " + loves)
+    print(name + " " + "favourite food is" + " " + favFood)
+    print()
+
+
+
+import turtle
+import time
+a = 5
+print(a)
+b = "hello"
+print(b)
+credit_card =3456789345676
+print (credit_card)
+def square():     
+#this is a square
+   qazi_turtle = turtle.Turtle()
+   qazi_turtle.forward(100)
+   qazi_turtle.right(90)
+   qazi_turtle.forward(100)
+   qazi_turtle.right(90)
+   qazi_turtle.forward(100)
+   qazi_turtle.right(90)
+   qazi_turtle.forward(100)
+   
+square()
+time.sleep (10)
+
+
+import turtle
+import time    
+#this is a square
+qazi_turtle = turtle.Turtle()
+
+def square():
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100) 
+square() 
+qazi_turtle.forward(100)
+square()
+time.sleep (10)
+
+
+#pip install modulesoup4
+#pip install requestsn
+#pip install pandas
+#check the ational weather service
+# check on chrome dev tools
+
+import requests
+import pandas as pd
+from bs4 import Beautifulsoup
+ 
+page = request.get('https://forecast.weather.gov/MapClick.php?lat=40.753840000000025&lon=-111.56964999999997#.YQGRVfkza00.XIR')
+soup = BeautifulSoup(page.content, 'html.perser')
+print(soup)
+print()
+
+print(soup.find_all("a"))
+print(soup.find_all("images"))
+
+week = soup.find(id='seven-day-forecast-body')
+#print(week)
+
+week.find_all('li')
+items = week.find_all(class_='tombstone-container')
+print(items[0])
+
+#take each element and put it in its own collumn
+print(items[0].find(class_='period-name').get_text())
+print(items[0].find(class_='short-desc').get_text())
+print(items[0].find(class_='temp').get_text())
+
+period_names = [item.find(class_='period-name').get_text() for item in items]
+short_descriptions = [item.find(class_='short_desc').get_text() for item in items]
+temperature = [item.find(class_='temp').get_text() for item in items]
+
+print(period_names)
+print()
+print(short_descriptions)
+print()
+print(temperature)
+
+weather_stuff = pd.DataFrame(
+    {'period': period_names,
+     'short_description': short_descriptions,
+     'temperatures':temperaturea,
+     })
+
+print(weather_stuff)
+
+weather_stuff.to_csv('weather.csv')
+
+#does not know the number of times to repeat a task
+import turtle
+import time    
+#this is a square
+qazi_turtle = turtle.Turtle()
+
+def square():
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100) 
+#square() 
+qazi_turtle.forward(100)
+#square()
+time.sleep (10)
+
+qazi = 'happy'
+while qazi == 'happy':
+    qazi_turtle.foward(10) 
+time.sleep(10)    
+list1 = [1, 2, 3, 4, 5, 6, 7]
+list2 = ['one', 'two', 'three', 'four', 'five', 'six', 'mark']
+
+zipped = list(zip(list1, list2))
+print(zipped)
+
+list3 = [1, 2, 3, 4, 5, 6, 7]
+list4 = ['one', 'two', 'three', 'four', 'five', 'six', 'mark']
+
+zipped = list(zip(list3, list4))
+unzipped = list(zip(*zipped))
+print(unzipped)
+
+for(l1,l2) in zip(list1,list2):
+    print(l1)
+    print(l2)
+    print()
+    
+items = ['Apple', 'Banana', 'orange']
+counts = [3, 6, 4]
+prices = [90.00, 60.00, 40.50]
+    
+sentences = []
+for (item, count, price) in zip(items, counts, prices):
+    item, count, price = str(item), str(count), str(price)
+    sentence = 'I bought' + count + ' ' + item + 's' + ' ' + 'at sh' + price + '.'
+    sentences.append(sentence)
+    print(sentences)
+#These functions are called anonymous because they are not declared in the standard manner by using the def keyword. 
+# You can use the lambda keyword to create small anonymous functions.
+#Lambda forms can take any number of arguments but return just one value in the form of an expression. 
+#They cannot contain commands or multiple expressions.
+#An anonymous function cannot be a direct call to print because lambda requires an expression.
+#Lambda functions have their own local namespace and cannot access variables other than those in their parameter list and those in the global namespace.
+# Although it appears that lambdas are a one-line version of a function, they are not 
+#equivalent to inline statements in C or C++, whose purpose is to stack allocation by passing function, during invocation for performance reasons.
+#function defination
+sum = lambda arg1, arg2 : arg1 + arg2
+#function calling
+print("the total sum is:", sum(10, 20))
+print()
+print("the total sum is:", sum(20,30))
+#Bresenham's line Algorithim
+#Assumptions:
+#1)line is drawn from left to right 
+#x1 <x2 and y1< y2
+#slope of the line is between 0 and 1 
+#draw a line from lower left to upper right 
+
+#function for line generation 
+def bresenham(x1, y1, x2, y2):
+    
+    m_new = 2 * (y2 - y1)
+    slope_error_new = m_new -(x2 - x1) 
+    
+    y = y1 
+    for x in range(x1, x2+1):
+        print("(",x , ", ",y ,")\n")
+        
+        #Add a slope to increament angle formed 
+        slope_error_new = slope_error_new + m_new
+        
+        #slope error reached limit ,time to increament y and update slope error
+        if(slope_error_new >= 0):
+            y = y+1
+            slope_error_new = slope_error_new - 2 * (x2 - x1) 
+            
+            
+            
+#driver function 
+if __name__ == "__main__":
+    x1 = 3
+    y1 = 2
+    x2 = 15
+    y2 = 5
+    bresenham(x1, y1, x2, y2)
+import calendar
+
+import time
+import datetime
+#prints all days of the week from monday and labels them in 3 letters ie mon, tue
+print(calendar.weekheader(3))
+print()
+
+#prints the first day of the week which for python is monday
+print(calendar.firstweekday())
+print()
+
+#prints the month of march of the year 2019
+print(calendar.month(2019, 3))
+
+#prints the whole year details from jan to dec of the year 2021
+print(calendar.calendar(2021))
+
+#declare day of the week and assign athe day you want and use it to print out avoiding too much work
+#in this case it prints 3 as the day was thursday which takes  index 3
+day_of_the_week = calendar.weekday(2021, 7, 15)
+print(day_of_the_week)
+
+#checking whether the year is a leap year
+#if the year is a leap year it prints True else prints False
+is_leap = calendar.isleap(2021)
+print(is_leap)
+
+#prints the number of leap days between a range of years which must be an year divisible by 4
+how_many_leap_days = calendar.leapdays(1, 2021)
+print(how_many_leap_days)
+
+import turtle
+import time    
+#this is a triangle
+qazi_turtle = turtle.Turtle()
+qazi_turtle.speed(15)
+def triangle():
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100)
+  qazi_turtle.right(135)
+  qazi_turtle.forward(145)
+  #qazi_turtle.right(30)
+  #qazi_turtle.forward(100) 
+triangle() 
+#qazi_turtle.forward(100)
+#square()
+time.sleep (10)
+
+#for count in range(4):
+    #square()
+    #time.sleep(10)
+a = 2
+print(a)
+a = float(a)
+print(a)
+
+num = 222222
+print(num)
+num = str(num)
+print(num)
+
+import datetime
+import pytz
+
+#prints todays date
+today = datetime.date.today()
+print(today)
+
+#prints my birthday's date
+birthday = datetime.date(2000, 11, 8)
+print(birthday)
+print()
+#prints a daytime object 
+days_since_birth = today - birthday
+print(days_since_birth)
+print()
+
+#eliminates the daytime object prints the number of days from today till the day i was born
+days_since_birth = (today - birthday).days
+print(days_since_birth)
+print()
+
+tdelta = datetime.timedelta(days=10)
+#checks todays date and adds 10 days
+print(today + tdelta)
+print()
+
+#monday is the first day of the week with index 0 and sunday being the last day it is in index6
+#prints the date of the month today is
+print(today.day)
+print()
+#prints 2 as today is wednesday though it adjusts itsellf according to the day
+print(today.weekday())
+print()
+
+#hour min sec and microsec
+print (datetime.time(7,2,20,25))
+print()
+#datetime.date(years, month, day)
+#datetime.time(hours, month, seconds and microseconds)
+#datetime.datetime(years, months, days, hours, minutes, seconds and microseconds)
+
+hour_delta =datetime.timedelta(hours=10)
+print(datetime.datetime.now())
+print()
+#add 10 hours to current day 
+print(datetime.datetime.now() + hour_delta)
+
+#pip install pitz
+print(datetime.datetime.now(tz=pytz.UTC))
+
+datetime_today = datetime.datetime.now(tz=pytz.UTC)
+datetime_pacific = datetime_today.astimezone(pytz.timezone('us/pacific'))
+print(datetime_percific)
+
+for tz in pytz.all_timezones:
+    print(tz)
+
+    
+#string formating with dates
+#2021-28-07   july 28 2021
+#we use strftime(f = formatting)
+
+print (datetime_pacific.strftime('%B, %d, %y'))
+print()
+
+#july 28 2021 -> datime(2021-28-07)
+#strptime(p= parsing)
+datetime_thing = datetime.datetime.strptime('March, 09, 2019', '%B, %d, %y')
+print(repr(datetime_thing))
+
+#i should check Maya 
+#pip install maya
+#dictionaries are good for :
+#super organized data (mini databases)
+#They are fast as hell(constant time)
+#get(), items(), keys(), values(), pop(), popitem(), clear()
+dictionary_database = {
+    'pancakes':17,
+    'hula hoops':4.5,
+    'cogregation':90,
+    'fleat':40,
+    'fruits':('banans', 'apples', 'mangos')
+}
+print(dictionary_database)
+print()
+
+#on the left ie banana & oranges are called the key and on the right ie 5&4 are called the value
+#thus they are called the key value pair
+groceries = {'bananas':5, 'oranges':4}
+print(groceries)
+print()
+
+#prints 5 which is the value of banana
+print(groceries['bananas'])
+print()
+
+#prints 4 which is the value of the key oranges
+print(groceries.get('oranges'))
+print()
+
+#prints none as orange is not part of the dictionary
+print(groceries.get ('oranges'))
+print()
+
+#dictionary allows infinite flexibility 
+# it can contain infinite values describing  each key
+contacts = {
+    'Mark':[+254715328558, 'markwaithaka43@gmail.com' 'Gwa_kairu'],
+    "Johnte":[+254702229275, 'djonte0@gmail.com', 'kimbo'],
+    "Aunt_msoo":[+254728851256, 'paulinemuthoni1@gmail.com', 'kahara'],
+    "Mama_mboga":[+254724554177, 'danielmzee234@gmail.com', 'gwa_kairu'],
+    "Hiro" :[+254795860398, 'hillummury567@gmail.com', 'karatina']
+}
+
+#it prints the values of Johnte which include his phone number, email and location
+print(contacts['Johnte'])
+print()
+
+#print none as no argument is passed
+print(contacts.get(''))
+print()
+
+print(contacts)
+print()
+
+#creati
+# on of dictionaries inside a dictionary
+#there is the dictionary contacts which is the key and its values have been splited further
+#to produce other dictionaries eg mark ,johnte etc which have the values phone number email adress and location
+contacts2 = {
+    'Mark':{'phone_number':+254715328558, 'email_adress':'markwaithaka43@gmail.com', 'location':'Gwa_kairu'},
+    "Johnte":{'phone_number':+254702229275, 'emeil_adress':'djonte0@gmail.com', 'location':'kimbo'},
+    "Aunt_msoo":{'phone_number':+254728851256, 'email_adress':'paulinemuthoni1@gmail.com', 'location':'kahara'},
+    "Mama_mboga":{'phone':+254724554177, 'email_adress':'danielmzee234@gmail.com', 'location':'gwa_kairu'},
+    "Hiro" :{'phone':+254795860398, 'email_adress':'hillummury567@gmail.com', 'location':'karatina'}
+    
+    
+    
+    
+    
+    
+    
+    }
+
+print(contacts2['Mark'])
+print()
+print(contacts2['Johnte'])
+print()
+print(contacts2['Aunt_msoo'])
+print()
+print(contacts2['Mama_mboga'])
+print()
+print(contacts2['Hiro'])
+print()
+
+print(contacts2)
+print()
+print('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
+print(contacts2['Mark']['phone_number'])
+print()
+
+#The dictionary is a type of unordered list for python below the version 3.7 
+#When we want it to be ordered we import the orderedDict madule
+#The order of a dictionary is the order in which things were added in the dictionary
+from collections import OrderedDict
+sentense = "mark is a great guy who loves coding ,mark was born in 2000, mark loves ann and mark mom is called ann"
+print(sentense)
+print()
+
+
+word_count = {
+    "mark":4,
+    "is":2,
+    "a":1,
+    "guy":1, 
+    "who":1,
+    "loves":2,
+    "coding":1, 
+    "was":1, 
+    "born":1,
+    "in":1,
+    "2000":1,
+    "ann":2, 
+    "and":1,
+    "mom":1, 
+    "called":1,
+}
+print(word_count)
+print()
+
+word_count['mark'] = word_count['mark'] + 1
+print(word_count)
+
+
+#dict.items() when you call it you get a list of tuples and each tuple is a key value pare eg 'mark':4, 'mom':1
+print(word_count.items())
+print()
+print('>>>>>>>>>>>__________________<<<<<<<<<<<<<<<<<<<---------------------??????????')
+print(list(word_count.items()))
+print('------------->>>>>>>>___________<<<<<<<<<<<<<<<<<')
+print()
+#dict.keys()when called it gives a list of keys only eg mark, loves ,mom
+print(word_count.keys())
+print()
+print("OOOOOOOO++++++++++&&&&&&&&&&&&&&&&################")
+print(list(word_count.keys()))
+print("<<<<<<<<<<<<<<<<<<<---------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+#dict.values()when called it gives a list of valies eg 4, 2, 1 etc
+print(word_count.values())
+print()
+
+#this is to help us print the dictionary before deleting the key 
+print(word_count)
+print()
+# the keyword pop is used when deleting an item which for this case happens to be was  
+print (word_count.pop('was'))
+print()
+#this prints the dictionary after the word was poped 
+print(word_count)
+print()
+
+#it will pop the last element in the dictionary
+word_count.popitem()
+print(word_count)
+print()
+
+#starts by printing the dictionary
+# adds the elementwas to the dictionary and assign it the value 2
+#and prints the dictionary again to show the dictionary with the printed value
+print(word_count)
+word_count['was'] = 2
+print(word_count)
+print()
+
+
+print(list(word_count.values()))
+#classes are bluprints of how  something should be defined 
+#while defining a class one must start with the class Keyword then the name of the class and close with colons
+#python class names are written in capitalizedwords notation by convention
+
+class Dog:
+    #Class attribute 
+    species = "canis familiaris"
+    #the properties that all dogs have are defined in the __init__()
+    #every time a new dog object is created __init__() sets the initial state of the object by assigning values of the object properties 
+    #it initializes each new instance of the class
+    #the variable called self always takes the forst parameter
+    #when a new class instance is created, the instance is automatically passed to the self parameter in __init__() function
+    #so that new attribute can be defined on the object
+    def __init__(self, name, age):
+        #creates an attribute name and assigns to it the value of the name  parameter
+        self.name = name
+        #creates an attribute age and asigns to it the valueof the age parameter 
+        self.age = age 
+        
+john = Dog('John',12)
+print(john.age)
+print(john.name)
+print(john.species)
+                   
+        
+
+import smtplib
+
+sender_email = "markwaithaka43@gmail.com"
+rec_email = "djonte0@gmsil.com"
+password = input(str("please input your password"))
+message = "hello man! i just sent this to you using python"
+
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.starttls()
+server.login(sender_email, password)
+print("login success")
+server.sendmail(sender_email, rec_email, message)
+print("Email has been sent to", rec_email)
+import re
+text = "A random string"
+pattern = re.compile("A random string")
+
+result = pattern.search(text)
+
+print(result)
+print()
+
+
+text2 = "A random string"
+pattern = re.compile("[a-zA-Z0-9]+")
+#for this case it prints A as it was the first to be marched
+result = pattern.search(text2)
+
+print(result)
+print()
+
+
+text3 = "random string"
+#pattern = re.compile("random string")
+pattern = re.compile("[a-zA-Z]+")
+#it should print random as it was first to be marched
+result = pattern.search(text3)
+
+print(result)
+print()
+
+
+
+text4 = "ran34567ASDFGdom string"
+#checks for a pattern from the text that consist of allaletters capital and small from a to z and numbers from 0-9 
+pattern = re.compile("[a-zA-Z0-9]+")
+
+result = pattern.search(text4)
+
+print(result)
+print()
+
+
+text5 = "markwaithaka43@gmail.com this is a arndom text."
+#checks for a pattern from the text that consist of allaletters capital and small from a to z and numbers from 0-9 
+pattern = re.compile("[a-zA-Z0-9]+\@[a-zA-Z0-9]+\.[a-zA-Z]+")
+
+result = pattern.search(text5)
+
+print(result)
+print()
+
+
+text6 = "markwaithaka43@gmail.com this is a arndom text johtek100@gmail.com"
+#checks for a pattern from the text that consist of allaletters capital and small from a to z and numbers from 0-9 
+pattern = re.compile("[a-zA-Z0-9]+\@[a-zA-Z0-9]+\.[a-zA-Z]+")
+
+result = pattern.findall(text6)
+
+print(result)
+print()
+
+text7 = "mark_waithaka-43@gmail.com this is a arndom text."
+#checks for a pattern from the text that consist of allaletters capital and small from a to z and numbers from 0-9 
+pattern = re.compile("[a-zA-Z0-9_\-\]+\@[a-zA-Z0-9]+\.[a-zA-Z]+")
+
+result = pattern.search(text7)
+
+print(result)
+print()
+for i in range(20):
+    print(i)
+    import turtle
+import time    
+#this is a square
+qazi_turtle = turtle.Turtle()
+qazi_turtle.speed(15)
+def square():
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100) 
+square() 
+#qazi_turtle.forward(100)
+#square()
+#time.sleep (10)
+
+for count in range(4):
+    square()
+    time.sleep(10)
+names = {'mark':10, 'waithaka':20, 'murringo':15, 'kavinski':5, 'peter':21}
+
+l = []
+print([name for name in names if names [name] > 14])
+def fib(n):
+    result = []
+    a, b = 0,1
+    while b < n:
+        result.append(b)
+        a, b = b, a + b
+        return result
+    #import math
+    from math import fib
+    print(fib(100))
+    
+    
+def fib(n):
+    result = []
+    a, b = 0, 1
+    while b < n:
+        result.append(b)
+        a, b = b, a + b
+        return result
+    if __name__ == "__main__":
+        f = fib(100)
+        print(f)
+#you can call the function by calling the following types of formal arguments
+#Required arguments 
+#Required arguments are the arguments passed to a function in correct positional arguments
+def printme(str):
+    print(str)
+    return
+str = [4, 5, 6, 7, 8, 9]
+print(str)
+
+#keyword arguments 
+# the caller identifies the arguments by the parameter name
+def printinfo(name, age):
+    print("Name:", name)
+    print("Age:", age)
+    return
+
+printinfo(name = "mark", age = 21)
+
+#Default Arguments 
+#it assumes a defult value when a value is not provided in the function call for that argument
+def printInfo(name, age): 
+    print("Name:", name)
+    print("Age:", age)
+    return
+printInfo(name ="johnte", age = 22 )
+#printInfo(name = "johnte",)
+
+#variable_length Argument
+#occurs when one needs to process more arguments than specified during function defination
+#An asterisk (*) is placed before the variable name that holds the values of all nonkeyword variable arguments.
+def printinfo(arg1, *vartuple): 
+    print("Output is:")
+    print(arg1)
+    
+    for var in vartuple: 
+        print(var)
+        return
+    
+    printinfo(10)
+    printinfo(10, 20, 30)
+def changeMe(myList):
+    print("This is the value of changeMe before any changes :", myList)
+    myList[2] = 50
+    print("This is my changeMe value after changes:", myList)
+    return
+myList =[10, 20, 30]
+changeMe(myList)
+print("This is the value of the changeMe function after all changes", myList )
+print("-------------------------------------------------------------------------------")
+
+
+def ChangeMe(mylist):
+    mylist = [2, 3, 4, 5] 
+    print("This are the values of my changeme function", mylist)
+    return
+
+mylist = [10, 20, 30]
+print("This are the values of the changeme function after the chages", mylist)
+print("Hello world!")
+print()
+print(2 + 2)
+print()
+print(">>>>>>>>>>>>>>>>>>>>>--------------->>>>>>>>>>>")
+
+for x in range (10):
+   print(x)
+   print(">>>>>>>------------------<,,,,,,,,,,,,,,,<<<<<<<<<<<<")
+import turtle
+import time    
+#this is a square
+qazi_turtle = turtle.Turtle()
+
+def square():
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100) 
+#square() 
+#qazi_turtle.forward(100)
+#square()
+#time.sleep (10)
+
+elephant_weight = 3000
+ant_weight = 0.1
+
+if elephant_weight > ant_weight:
+    square()
+    time.sleep(10)
+
+    print(3000 > 0.1)
+
+    if True:
+      print("3000 is greater than 0.1")
+    else:
+        square()
+        time.sleep(5)
+sentense = "mark is a great guy who loves coding ,mark was born in 2000, mark loves ann and mark mom is called ann"
+
+for name in sentense:
+    print(name)
+#import maya.cmds as cmds
+#surface1 = cmds.sphere()
+#cmds.toggle(surface1, cv = True)
+#cmds.toggle(g=True, cv=True)
+#cmds.toggle(q=True, cv=True)
+#Returns 0 if the queried state is false 
+#Returns 1 if the queried state is True
+
+#solutoion using NOT
+#x = True
+#x = not x
+
+#toggle using dictionary
+keys = {
+   'A':1,
+    'B':2
+}
+d = {'A':'B', 'B':'A'}
+x =  'B'
+x = d[x]         # toggle
+print(x)
+#should print 1
+x = d[x]         # toggle
+print(x)
+#should print 2
+x = d[x]         # toggle
+print(x)
+#should print 1
+
+if x == 1:
+    print("likes =", ++x)
+elif x == 2: 
+    print("likes =", --x)
+problems ='sick, broke, stupid, plump, short, nerdy, pale'
+print(problems)
+print()
+
+#spliting by delimeter
+l = problems.split(", ")
+print(l)
+print()
+i = problems.split("short")
+print(i)
+print()
+print()
+
+joined = ' and '.join(l)
+print(joined)
+print()
+
+csv = ','.join(l)
+print(csv)
+print()
+import turtle
+import time    
+#this is a square
+qazi_turtle = turtle.Turtle()
+
+def square():
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100)
+  qazi_turtle.right(90)
+  qazi_turtle.forward(100) 
+square() 
+qazi_turtle.forward(100)
+square()
+time.sleep (10)
+
+
+class Employee:
+    
+    empCount = 0
+    
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+        Employee.empCount += 1
+        
+        
+    def displayCount(self):
+        print("Total Employee %d" % Employee.empCount)
+            
+    def displayEmployee(self):
+        print("Name :", self.name, "Salary :", self.salary)
+            
+    def getcount(self):
+        return empCount
+            
+            
+emp1 = Employee("Max", 150000)
+
+emp2 = Employee("Mark", 1000000)
+
+emp3 = Employee("John", 180000)
+
+emp1.displayEmployee()
+emp2.displayEmployee()
+emp3.displayEmployee()
+
+print("The total number of employees is %d" % Employee.empCount)
+a = input("What's your name : ")
+b = int(input("What's your salary : "))
+if (hasattr(emp1, name) and hasattr(emp1, salary)) == True):
+    setattr(obj, a, b) 
+#it is a special data type that is used to group things together
+#introduces the concept of indexing 
+#every list starts at a zero index 
+l = [1, 2, 3, 4, 5, "name", [6, 7, 8, 9, 0]]
+#We are about to print the element in the 6'th index  which happens to be a list embended into another list
+#the system prints 9
+
+print(l[6][3])
+print(l[6][0 : 4])
+#give a list of names 
+names = ['mark', 'waithaka', 'muringo']
+print(names)
+
+#adds the name stated in the brackets at the end of the list
+names.append('saka')
+print(names)
+
+#removes the name ststed from the list
+names.remove('mark')
+print(names)
+
+#adds the name stated from the beginning of the list
+names.insert(0, 'mark')
+print(names)
+#reverses the order of the list making the first things come last
+names.reverse()
+
+#grouping numbers together
+numbers = [0, 5, 8, 3, 7, 5, 4]
+print(numbers)
+numbers2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+print(numbers2[: -1 :1])
+print()
+
+print(numbers2[: -1 :2])
+print()
+
+print(numbers2[: -1 :3])
+print()
+
+#used in arranging the numbers in ascending order
+numbers.sort()
+print(numbers)
+print()
+
+#below introducessthe concept of a for loop 
+#for a given number of numbers or strings a for loop counts them and repeats those numbers for the total number they were
+#suppose i have numbers 1, 2, 3 when i use a for loop it repeats the numbers 1,2and3 for 3 times
+
+#it checks the length of the number which starts with a single num prints it then goes to the next prints both till the last number
+for i in range(len(numbers)):
+    print(numbers[:i])
+#will reverse the order of the sorted list thus making it appear in  a descending order
+numbers.reverse()
+print(numbers)
+print()
+
+#itarates over the numbers
+for number in numbers:
+    print(numbers)
+    
+
+num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+for i in range (len(num)):
+    print()
+    print(num[i: i+3])
+    print()
+
+window_size = 3
+for i in range (len(num) -2):
+    print(num[i:i+window_size])
+    print()
+
+#dinamic slicing
+window_size = 6
+for i in range(len(num)- (window_size - 1)):
+    print(num[i:i+window_size])
+
+names = ['mark', 'waithaka', 'eva', 'nancy', 'wasike']
+
+list = []
+
+for person in names:
+    list.append(person)
+    print(list)
+    print() 
+print(list) 
+print()
+print([person for person in names])
+print()
+
+movies_and_ratings = {"Harry porter": 9, "prison break":8, "need for speed":7, "black list":4, "comando":2}
+
+l = []
+for movie in movies_and_ratings: 
+    if movies_and_ratings[movie] > 6:
+     l.append(movie)
+     print(l)
+     print()
+     print()
+print(l)
+print()
+    
+print([movie for movie in movies_and_ratings if movies_and_ratings[movie] >6])
+#mutability = changeable eg lists and dictionaries good for flexible data
+#immutability = unchangeable eg tuples good for securing  data 
+#tuples cannot be changed  and trying to change them will course an error
+tuple = (1, 2, [3, 4, 5,])
+print(tuple)
+print()
+
+print(tuple[2][2])
+print()
+
+
+#at index 2 there is a list which is embended in the tuple 
+#a list can be changed thus we have changed the element in the first index from 4 to 5
+#NB the keys in a dictionary are imutable but the values are immutable
+tuple[2][1] = 5
+print (tuple)
+print()
+
+#suppose the whole group was a tuple
+# the code will break and display an error method as i tried to change a tuple and it is unchangable 
+#i have introduced the concept of error handling which will display the message i printed case of the error occurence 
+#prevents the code from braking and the error messqage is replaced with the printed one
+try:
+    tuple = (1, 2, (3, 4, 5,))
+    tuple[2][1] = 5
+    print (tuple)
+    print()
+except TypeError:
+    print("there is type error resulting from trying to change a tuple ")
+money = 1000
+def AddMoney(): 
+    #uncomment the following line to rectify the code 
+    global money 
+    money = money + 1
+    
+    
+    print(money)
+    AddMoney()
+    print (money)
+#function for poclipping 
+def pointCliping(xy, n, xmin, ymin, xmax, ymax):
+    """ ************** code for graphics view
+#initialize graphics mode 
+detect graph(&gm, &gr)
+initgraph(&gm, &gr, "d:\\tc\\BGI")
+for (i=0 i<n i++)
+
+if ((xy[i] [0] >=xmin) and 
+    (xy[i] [0] <= xmax))
+
+    if ((xy[i] [1] >= ymin) and (xy[i] [1] <= ymax))
+    putpixel(xy[i] [0], xy[i] [1], 3)
+    ************** """
+"""*** Arithmetic view ***"""
+print("points inside the viewing pane:")
+for i in range(n):
+   if ((xy[i] [0] >= xmin) and (xy[i] [0] <= xmax)):
+       if ((xy[i] [0] >= ymin) and (xy[i] [0] <= ymax)):
+           print("[", xy[i] [0], ", ", xy[i] [0], "]", sep = "", end = " ")
+
+#propcoordinates outside viewing pane 
+print("points outside the viewing pane:")
+for i in range(n):
+   if ((xy[i] [0] < xmin) and (xy[i] [0] > xmax)):
+       print("[", xy[i] [0], ", ", xy[i] [0], "]", sep = "", end = " ")
+
+
+   if ((xy[i] [0] >= ymin) and (xy[i] [0] <= ymax)):
+       print("[", xy[i] [0], ", ", xy[i] [0], "]", sep = "", end = " ")
+
+       
+#Driver code 
+if __name__ == "__main__":
+    xy = [[10, 10,], [-10, 10], [400, 100], [100, 400], [400, 400], [100, 40]]
+
+#get maxx () & getmaxy() will return Xmax, 
+#y max value if graphics.h is included 
+xmin = 0
+xmax = 350
+ymin = 0
+ymax = 350
+
+pointClip(xy, 6, xmin, ymin, xmax, ymax) 
+
+
+
+#Data types refers to the way a clomputer can understand Data
+#There are 4 primitive data_types in python
+#numbers:(int: 123, floats:123.45, strings:"mark"), boolean:True, False
+
+num = 233333333334
+print(num)
+
+float_num =345.6789
+print(float_num)
+
+print("This is a string in python")
+#email adress text scrapper
+import re
+text = "This is a random string"
+pattern = re.compile("This is a random string")
+result =pattern.search(text)
+print(result)
+
+text = "This is a random string"
+pattern = re.compile("[ABC]")
+result =pattern.search(text)
+print(result)
+
+text = (input("Please input your password"))
+pattern = re.compile("[ABC]")
+result =pattern.search(text)
+print(result)
+def sum(num1, num2): 
+    total = num1 + num2
+    print("inside the function:", total)
+    print()
+    return total
+
+total = sum(10, 20)
+print("outside the function:", total)
+
+
+def multiplication(num3, num4):
+    product = num3 * num4
+    print("product inside function", product)
+    print()
+    return product
+
+product = multiplication(13, 14)
+print("product outside function", product)
+print()
+if product > 100: 
+    print("product just too high as fuck")
+  
+total = 0 #This is a global variable
+#function defination
+def sum(num1, num2):
+    #Add both parameters and return them
+    total = num1 + num2
+    print("Inside the functionn local total:", total)
+    return total
+
+#Now i call the sum function
+sum(10, 20)
+print("Outside the function Global variable total", total)
